@@ -1,0 +1,18 @@
+#Napisati program koji od korisnika čita brojeve. Ako uneseni broj ima manje od 3 djelitelja,
+#program nastavlja sa čitanjem brojeva. U suprotnom program završava. Program se oslanja na 
+#dodatnu funkciju brdjel() koja prima broj i vraća broj djelitelja primljenog broja. 
+#Napisati funkciju brdjel().
+
+def broj_djelitelja(a):
+    b=0
+    for i in range (1,a+1):
+     if a%i==0:
+         b+=1
+    return b     
+
+while True:  
+    a=int(input("Unesite neki broj: "))
+    if brdjel(a)>=3:
+        break
+
+print(brdjel(a))

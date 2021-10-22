@@ -1,0 +1,1 @@
+#djeljitelji nekog broja

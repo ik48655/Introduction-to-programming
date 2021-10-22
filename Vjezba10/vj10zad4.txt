@@ -1,0 +1,9 @@
+string="a,a,c,v,w,d,f,vd,"
+
+def f(x):
+    y=""
+    for slovo in x:
+        if slovo!=",":
+            y+=slovo
+    return y
+print(f(string))

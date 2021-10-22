@@ -1,0 +1,16 @@
+def Funkcija(lista1, lista2):
+    
+    listaF = []
+    
+    for i in range(len(lista1)):
+        for j in range(len(lista2)):
+            if (lista1[i] == lista2[j]):
+                listaF.append(lista1[i])
+    return listaF
+
+lista1 = ["jedan", "dva", "tri", "èetri" , "pet", "šest"]
+lista2 = ["jedan", "tri", "šest", "osan", "devet", "deset"]
+
+listaF = Funkcija(lista1, lista2)
+
+print(listaF)

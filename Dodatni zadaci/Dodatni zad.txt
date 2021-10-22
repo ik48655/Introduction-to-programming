@@ -1,0 +1,123 @@
+ZADATAK 2.
+
+#2
+
+
+def vraca(a,b):
+    br=0
+    while a > 0 or b > 0:
+        if a%10 > b%10:
+            br+=1
+        a=a//10
+        b=b//10
+    return br
+print(vraca(98745, 542387))
+
+ZADATAK 4.
+
+#4
+
+def funkcija(a,b):
+    if a==0:
+        return 0
+    if a%10 != b%10:
+        return 1 + funkcija(a//10,b//10)
+    else:
+        return 0 + funkcija(a//10,b//10)
+    
+print(funkcija(23456,98745))
+
+
+
+ZADATAK 1.
+
+#1
+
+def funkcija():
+    while True:
+        a=int(input("Unesite broj: "))
+        b=int(input("Unesite broj: "))
+        if (a>0 and b<0) or (a<0 and b>0):
+            return (a,b)
+        
+print(funkcija())
+        
+
+ZADATAK 3.
+
+
+#3
+
+def funkcija():
+    a_pret=int(input("Unesite broj: "))
+    b_pret=int(input("Unesite broj: "))
+    while True:
+        a=int(input("Unesite broj: "))
+        b=int(input("Unesite broj: "))
+        if a> a_pret and b> b_pret:
+            return a,b
+        
+print(funkcija())
+
+ZADATAK 5.
+
+#5
+
+def veca2(a,b):
+    if a > b:
+        return a
+    else:
+        return b
+    
+def veca5(c,d,e,f,g):
+    cd=veca2(c,d)
+    ef=veca2(e,f)
+    cdef=veca2(cd,ef)
+    return veca2 (cdef,g)
+    
+    
+    
+print(veca5(1,2,3,4,5))
+
+ZADATAK 8.
+
+#8
+
+s=int(input("Unesi broj: "))
+for i in range(s):
+    for n in range(s):
+        if n==0 and i<(s//2):
+            print("*",end=' ')
+        elif n==(s-1) and i>(s//2):
+            print("*",end=' ')
+        elif i==0 or i==(s//2) or i==(s-1):
+            print("*",end=' ')
+        else:
+            print(" ",end=' ')
+    print()
+
+ZADATAK 7.
+
+#7
+
+def rekurzivna(broj):
+    if broj==0:
+        return 
+    print(broj%10)
+    rekurzivna(broj//10)
+        
+rekurzivna(12345)
+
+ZADATAK 6.
+
+#6
+
+def rekurzivna(a,b):
+    if a>b :
+        a,b = b,a
+    if a==b-1:
+        return 0
+    return a+1 + rekurzivna(a+1,b)
+    
+
+print(rekurzivna(4,8))

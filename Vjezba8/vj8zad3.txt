@@ -1,0 +1,43 @@
+#Napisati iterativnu i rekurzivnu verziju funkcije za ispis broja u heksadecimalnom obliku (baza 16). 
+#Napisati pomoćnu funkciju koja će umjesto broja 10, 11, .. 15 ispisati odgovarajuće slovo 'A', 'B' .. 'F'.
+
+
+def A_10_do_15_F(t):
+    if t==10:
+        return 'A'
+    if t==11:
+        return 'B'
+    if t==12:
+        return 'C'
+    if t==13:
+        return 'D'
+    if t==14:
+        return 'E'
+    if t==15:
+        return 'F'
+    else:
+        return t
+
+def heks(n):
+    t=0
+    h=1
+    while n!=0:
+        h*=100
+        t=n%16
+        n//=16
+        h+=t
+    while h!=1:
+        print(A_10_do_15_F(h%100), end=" ")
+        h//=100
+        
+def heks_rek(n):
+    if n==0:
+        return 
+    heks_rek(n//16)
+    print(A_10_do_15_F(n%16), end=" ")
+
+n=int(input("Unesite n: "))
+print(hex(n))
+heks_rek(n)
+print()
+heks(n)

@@ -1,0 +1,20 @@
+#Napisati funkciju koja pretvara 3D koordinatu u 2D koordinatu. 
+#Koordinate su predstavljene trojkom ili parom decimalnih brojeva. 
+#Funkcija prima 3D koordinatu kao parametar i vraća 2D koordinatu. 
+#Funkcija pretvara koordinate iz 3D u 2D tako da od 3D koordinate uzme dvije najmanje vrijednosti.
+
+
+def tri_vrijedn(x,y,z):
+    if x>=y and x>=z:
+        return y,z
+    if y>=x and y>=z:
+        return x,z
+    if z>=x and z>=y:
+        return x,y
+    
+
+x=int(input("Unesi prvi broj: "))
+y=int(input("Unesi drugi broj: "))
+z=int(input("Unesi treci broj: "))
+
+print(funk(x,y,z))        

@@ -1,0 +1,134 @@
+#ZADATAK 1
+#Napisati program koji od korisnika čita stringove i sprema ih u listu. Kada korisnik upiše samo točku,
+#program završava i ispisuje sve stringove iz liste koji su duži od 5 znakova.
+
+lista = []
+while True:
+    string = input("Unesite rijec: ")
+    if string == ".":
+        for e in lista:
+            if len(e)>5:
+                print(e)
+        break
+    else:
+        lista.append(string)
+        print(lista)
+
+#ZADATAK 2 
+#Napisati program koji od korisnika čita brojeve i sprema ih u listu. Kada korisnik upiše 0, program pita
+#za dodatni broj N i ispisuje zbroj zadnjih N upisanih brojeva. Ako u listi nema dovoljno brojeva, program
+#ispisuje grešku i završava.
+
+lista = []
+while True:
+    broj = int(input("unesite broj: "))
+    lista.append(broj)
+    if broj == 0:
+        N = int(input("Unesite dodatni broj: "))
+        if N > (len(lista)):
+            print("Greska")
+            break
+        while N>0:
+            print(lista[-N])
+            N -= 1
+        if N==0:
+            break
+
+#ZADATAK 3
+#Napisati funkciju koja prima listu brojeva i vraća listu booleana. Svaki element u listi booleana (osim
+#prvog) će odgovarati jednom elementu u listi brojeva. Element će biti True ako je broj na istom
+#indeksu veći od broja na prethodnom indeksu.
+
+def vracabool(lst):
+    lista=[True]
+    for i in range(len(lst)-1):
+        if lst[i+1]>lst[i]:
+            lista.append(True)
+        else:
+            lista.append(False)
+    return lista
+
+lst=[2,4,12,6,3,5,11,22]
+nova = vracabool(lst)
+print(nova)
+
+#ZADATAK 4
+#Napisati funkciju koja prima listu stringova i vraća novu listu stringova. U novu listu se dodaju samo
+#stringovi koji su ispravni e-mailovi po formatu 'ime.prezime@unist.hr', gdje su ime i prezime dugi do
+#10 znakova.
+
+def vracastr(lst):
+    nova=[]
+    for e in lst:
+        djelovi= e.split('@')
+        print(len(djelovi))
+        if len(djelovi)==2 and djelovi[1] =="unist.hr":
+               prvi_djelovi = djelovi[0].split(".")
+               flag=True
+        else:
+            flag=False
+        if flag and (len(prvi_djelovi[0]) <10 and len(prvi_djelovi[1]) <10 ):
+            if (prvi_djelovi[0].isalpha() and prvi_djelovi[1].isalpha()):
+                nova.append(e)
+    return nova
+
+lsta=[ "imeduze.prezime@unist.hr", "imeprezime@unist.hr", "ime7.prezime@unist.hr", "ime.prezime@unist.hr",
+      "ime.prezime@@oss.unist.hr", "ime.prezime@oss@unist.hr", "ime.prezimeosss.unist.hr"
+      "imeeeeeeeeeee.prezim@unist.hr" ]
+print(len(lsta))
+print(vracastr(lsta))
+
+#ZADATAK 5
+#Napisati funkciju koja prima rječnik gdje su ključevi imena kandidata, a vrijednost broj glasova koje je
+#dobio na izborima. Funkcija vraća novi rječnik koji sadrži imena kandidata i postotak dobivenih
+#glasova
+
+def funkcija(rije):
+    rijecnik = {}
+    brGlasova = 0
+    for e in rije:
+        brGlasova += rije[e]
+    for e in rije:
+        postotak = (rije[e]/brGlasova)*100
+        rijecnik[e] = str(int(postotak))+"%"
+    return rijecnik
+
+rije = {"mate" : 22, "ante" : 34, "Ana" : 45, "Marija" : 12 }
+print(funkcija(rije))
+
+#ZADATAK 6
+#Napisati funkciju koja prima dvije liste riječi. Funkcija vraća rječnik koji sadrži riječi iz prve liste kao
+#ključeve i boolean vrijednosti koja označava da li se riječ pojavljuje u drugoj listi.
+
+def dvijeliste(lst1, lst2):
+    rijecnik = {}
+    for e in lst1:
+        if e in lst2:
+            rijecnik[e] = True
+        else:
+            rijecnik[e] = False
+    return rijecnik
+
+lista1 = ["pismo", "glava", "knjiga", "laptop", "nebo", "sunce", "auto"]
+lista2 = ["ptica", "stol", "pismo", "knjiga", "auto", "mjesec",]
+
+print(dvijeliste(lista1,lista2))
+
+#ZADATAK 7
+#Napisati program koji telefonski broj tipa 0800-CALL-ME pretvara u telefonski broj sastavljen samo od
+#znamenki i povlaka. Pretvaranje se vrši uz pomoć rječnika koji za svako slovo definira odgovarajuću
+#znamenku (slovima 'a', 'b' i 'c' odgovara znamenka 1, ...)
+
+broj = input("Unesite telefonski broj: ")
+novi_br = ""
+rijecnik = {"a":1, "b":2, "c":3, "d":4, "e":5, "f":6, "g":7, "h":8, "i":9, "j":10,
+            "k":11, "l":12, "m":13, "n":14, "o":15, "p":16, "q":17, "r":18, "s":19, "t":20,
+            "u":21, "v":22, "w":23, "x":24, "y":25, "z":26}
+for e in broj:
+    if e.isalpha():
+        slovo = e.lower()
+        novi_br += str(rijecnik[slovo])
+    else:
+        novi_br += str(e)
+        
+print(novi_br)

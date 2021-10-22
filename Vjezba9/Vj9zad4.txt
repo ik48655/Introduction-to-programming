@@ -1,0 +1,9 @@
+lst1=[1,2,3,4,9]
+lst2=[2,3,4,5,9]
+
+def funk(lst1,lst2):
+    for i in range(len(lst1)):
+        if lst1[i]%3==0:
+            if lst1[i] in lst2:
+                print(lst1[i])
+funk(lst1,lst2)                
