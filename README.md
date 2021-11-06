@@ -1,7 +1,7 @@
-# Uvod-u-programiranje
-Vjezbe iz UUP
+# Introduction-to-programming
+Problem exercises in Python
 
-Godina I.
+Year I.
 
-Semestar I.
+Semester I.
 
